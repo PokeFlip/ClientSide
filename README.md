@@ -8,28 +8,27 @@
 
 **Models:** 
 GameBoard:
-  startgame
-  endgame
-  selectgame
-  timer
-  score
+  - startgame
+  - endgame
+  - selectgame
+  - timer
+  - score
 
 Card:
-  flip
-  match
+  - flip
+  - match
 
 Views:
-  leaderboard
-  about
-  game
+  - leaderboard
+  - about
+  - game
   
   **Features:**
-  MPV: game with one difficulty, 3 types selector, leaderboard
-  Stretch goals: add difficulty, more types
+  - MPV: game with one difficulty, 3 types selector, leaderboard
+  - Stretch goals: add difficulty, more types
   
   **Databases:**
-  Leaderboard: Name VARCHAR(50), Score INTEGER
-  Type: Pokemon VARCHAR(25)
-  Pokemon: Name VARCHAR(25), image
+  - Leaderboard: Name VARCHAR(50), Score INTEGER
+  - Type: Pokemon VARCHAR(25)
 
 
