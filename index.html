@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PokeFlip</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="vendor/styles/normalize.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/modules.css">
+        <script id="card-template" type="text/x-handlebars-template">
+            <div data-number={{dexNumber}} class="card">
+                <div class="back">
+                    <p>Some art here</p>
+                </div>
+                <div class="front">
+                    <img src="{{imgUrl}}">
+                </div>
+            </div>
+        </script>
+    </head>
+    <body>
+        <main>
+            <section id="about" class="tab-content">
+                <div id="about-us" class="tab">
+                    <h1>ABOUT US</h1>
+                    <div>
+                        <img src="tbd">
+                        <p></p>
+                    </div>
+                </div>
+                <div id="about-game" class="tab">
+                    <h1>ABOUT THE GAME</h1>
+                    <p></p>
+                </div>
+            </section>
+            <section id="leaderboard" class="tab-content">
+                <h1>LEADERBOARD</h1>
+            </section>
+            <section id="game" class="tab-content">
+                <section id="selection">
+                    <h1>PICK YOUR GAME TYPE</h1>
+                    <div id="types">
+                        <button id="water" class="button">WATER</button>
+                        <button id="fire" class="button">FIRE</button>
+                        <button id="grass" class="button">GRASS</button>
+                    </div>
+                </section>
+                <section id="game-board">
+                    <div class="container">
+                        <div class="timer">00:00</div>
+                        <div class="score">Score:<span>0</span></div>
+                    </div>
+                    <div class="cards">
+                        <!-- cards go in here yo -->
+                    </div>
+                </section>
+                <section id="end-game">
+
+                </section>
+            </section>
+        </main>
+        <footer class="copyright">Team Uranium &copy; 2017</footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    </body>
+</html>
