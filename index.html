@@ -18,6 +18,19 @@
                 </div>
             </div>
         </script>
+        <script id="table-template" type="text/x-handlebars-template">
+            <td>{{place}}</td>
+            <td>{{name}}</td>
+            <td>{{score}}</td>
+        </script>
+        <script id="match-template" type="text/x-handlebars-template">
+            <div class="pokemon">
+                <img src="{{imgUrl}}">
+                <p>{{name}}</p>
+                <p>Dex No: {{dexNumber}}</p>
+                <p>About: {{dexEntry}}</p>
+            </div>
+        </script>
     </head>
     <body>
         <main>
@@ -36,6 +49,16 @@
             </section>
             <section id="leaderboard" class="tab-content">
                 <h1>LEADERBOARD</h1>
+                <table id="score-table">
+                    <tr>
+                        <th>Place</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr id="table-data">
+                    <!-- people go in here -->
+                    </tr>
+                </table>
             </section>
             <section id="game" class="tab-content">
                 <section id="selection">
@@ -56,7 +79,14 @@
                     </div>
                 </section>
                 <section id="end-game">
-
+                    <h1 id="end-game-greeting"></h1>
+                    <form id="name-save">
+                        <input type="text" placeholder="Enter Your Name Here">
+                        <button type="submit">Submit!</button>
+                    </form>
+                    <div id="poke-matches">
+                        <!-- matches go here -->
+                    </div>
                 </section>
             </section>
         </main>
