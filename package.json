@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "**Team Name:** Uranium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PokeFlip/ClientSide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PokeFlip/ClientSide/issues"
+  },
+  "homepage": "https://github.com/PokeFlip/ClientSide#readme",
+  "dependencies": {
+    "page": "^1.7.1"
+  },
+  "devDependencies": {}
+}
