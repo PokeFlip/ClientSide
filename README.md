@@ -49,6 +49,13 @@ Views:
 Leaderboard:
   - databaseInput
   
+ Server Routes:
+  - get to pokeAPI that gets pokemon and makes a pokemon object with type, name, dex number, and image url.
+  - get to pokeAPI that gets a pokemon description and sends it back to client.
+  - get to pokemon table that will send object with type, anem, dex number, and image url.
+  - post to leaderboard table that will insert into name and score.
+  - inserPokemon, loadLeaderboard, and loadPokemon functions.
+  
   **Features:**
   - MPV: game with one difficulty, 3 types selector, leaderboard
   - Stretch goals: add difficulty, more types
