@@ -7,27 +7,30 @@ app = app || {};
 
     view.initSelectPage = function() {
         $('.tab-content').hide();
-        $('#selection').show();
+        $('#selection').fadeIn();
     };
 
     view.initGamePage = function() {
         $('.tab-content').hide();
-        $('#game').show();
+        $('#game').fadeIn();
     };
 
     view.initEndGamePage = function() {
-        $('.tab-content').hide();
-        $('#end-game').show();
+        $('.tab-content').fadeOut();
+        $('#end-game').delay(1000).fadeIn();
+        $('#name-save').hide();
+        app.gameboard.endGame();
+        
     };
 
     view.initLeaderboardPage = function() {
         $('.tab-content').hide();
-        $('#leaderboard').show();
+        $('#leaderboard').fadeIn();
     };
 
     view.initAboutPage = function() {
         $('.tab-content').hide();
-        $('#about').show();
+        $('#about').fadeIn();
     };
 
     module.view = view;
