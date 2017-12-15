@@ -1,7 +1,9 @@
 'use strict';
 
-page('/', app.gameView.initSelectPage);
+page('/', app.view.initSelectPage);
 
-page('/about', app.gameView.initAboutPage);
+page('/about', app.view.initAboutPage);
 
-page('/leaderboard', app.gameView.initLeaderboardPage);
+page('/leaderboard', app.view.initLeaderboardPage);
+
+page.start();
