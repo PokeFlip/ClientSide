@@ -40,6 +40,10 @@ app = app || {};
     //       newCard.id = cardsArray[i];
     //       cardsDiv.appendChild(newCard);
 
+    function createCards() {
+        let cardsDiv = $("cards")
+    }
+
 
     // function cardClick() {
     //     let cards = document.getElementsByClassName('card');
@@ -58,31 +62,37 @@ app = app || {};
     //   }
 
     function cardClick() {
+        let cards = $('card');
         for (let i = 0; i < Card.length; i++) {
             $(Card)[i].addEventListener('click', function() {
-                if (!this.classList.contains('flipped') && app.flippedCards.length < 2) {
-                    this.classList.toggle('flipped');
+                if (!this.containsClass('flipped') && flippedCards.length < 2) {
+                    this.toggleClass('flipped');
                     Card.push(this);
                     // only lets two cards be flipped at a time
-                    if (app.flippedCards.length === 2) {
+                    if (flippedCards.length === 2) {
                         checkMatch();
                     }
                 }
             });
         }
     }
-
+    // function checkMatch() {
+    //     if (flippedCards[0].getAttribute('id') === flippedCards[1].getAttribute('id')) {
+    //       flippedCards[0].classList.add('match');
+    //       flippedCards[1].classList.add('match');
+    //       flippedCards = [];
+    //       updateScore(4);
+    //     } else {
+    //       setTimeout(flipBack, 700);
+    //       updateScore(-2);
+    //     }
+    //   }
     function checkMatch() {
-        if (app.flippedCards[0].getAttribute('id') === app.flippedCards[1].getAttribute('id')) {
-            app.flippedCards[0].classList.add('match');
-            app.flippedCards[1].classList.add('match');
-            app.flippedCards = [];
-            updateScore(4);
-        } else {
-            setTimeout(flipBack, 700);
-            updateScore(-2);
-        }
-    }
+        if (flippedCards[0].attr('data-number') === flippedCards[1].attr('data-number')) {
+            flippedCards[0].addClass('match');
+            flippedCards[1].addClass('match');
+            flippedCards = [];
+    };
     module.card = card;
 
 })(app);
