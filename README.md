@@ -9,7 +9,7 @@
 **Models:** 
 GameBoard:
   - startgame
-    - GET request to server. Server queries pokemon table in PokeFlip database. SELECT poke_image FROM pokemon WHERE type=INSERT_TYPE. Then randomly select 5 pokes from the data returned.
+    - Select 5 random pokemon from Card.All
     - from 5 pokes returned, createCardObj then app.card.toHtml
   - endgame
     - GET request to server. Server queries pokemon API for pokedex entries on pokemon.
@@ -24,6 +24,8 @@ Card:
   - toHtml
     - Will fill in handlebars template
   - Card.all array to hold card objects
+  - loadAll
+    - GET request to server. Server queries pokemon table in PokeFlip database. SELECT poke_image FROM pokemon WHERE type=INSERT_TYPE. Then create objects of them, and push into Card.all array.
 
 Views:
   - initLeaderboard
