@@ -36,24 +36,42 @@
         <nav>
             <ul>
                 <li><a href="/">Game</a></li>
-                <li><a href="/leaderboard" id="leaderboard">Leaderboard</a></li>
-                <li><a href="/about" id="about">About</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><a href="/about">About</a></li>
             </ul>
         </nav>
         <main>
-            <section id="about" class="tab-content">
-                <div id="about-us" class="tab">
-                    <h1>ABOUT US</h1>
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2000px-International_Pok%C3%A9mon_logo.svg.png" width="300" height="auto">
-                        <p></p>
-                    </div>
-                </div>
-                <div id="about-game" class="tab">
-                    <h1>ABOUT THE GAME</h1>
-                    <p></p>
+
+            <section id="selection" class="tab-content">
+                <h1>PICK YOUR GAME TYPE</h1>
+                <div id="types">
+                    <button id="water" class="button">WATER</button>
+                    <button id="fire" class="button">FIRE</button>
+                    <button id="grass" class="button">GRASS</button>
                 </div>
             </section>
+
+            <section id="game" class="tab-content">
+                <div class="container">
+                    <div class="timer">00:00</div>
+                    <div class="score">Score:<span>0</span></div>
+                </div>
+                <div class="cards">
+                    <!-- cards go in here yo -->
+                </div>
+            </section>
+    
+            <section id="end-game" class="tab-content">
+                <h1 id="end-game-greeting"></h1>
+                <form id="name-save">
+                    <input type="text" placeholder="Enter Your Name Here">
+                    <button type="submit">Submit!</button>
+                </form>
+                <div id="poke-matches">
+                    <!-- matches go here -->
+                </div>
+            </section>
+                
             <section id="leaderboard" class="tab-content">
                 <h1>LEADERBOARD</h1>
                 <table id="score-table">
@@ -67,35 +85,22 @@
                     </tr>
                 </table>
             </section>
-            <section id="game" class="tab-content">
-                <section id="selection">
-                    <h1>PICK YOUR GAME TYPE</h1>
-                    <div id="types">
-                        <button id="water" class="button">WATER</button>
-                        <button id="fire" class="button">FIRE</button>
-                        <button id="grass" class="button">GRASS</button>
+
+            <section id="about" class="tab-content">
+                <div id="about-us" class="tab">
+                    <h1>ABOUT US</h1>
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2000px-International_Pok%C3%A9mon_logo.svg.png" width="300" height="auto">
+                        <p></p>
                     </div>
-                </section>
-                <section id="game-board">
-                    <div class="container">
-                        <div class="timer">00:00</div>
-                        <div class="score">Score:<span>0</span></div>
-                    </div>
-                    <div class="cards">
-                        <!-- cards go in here yo -->
-                    </div>
-                </section>
-                <section id="end-game">
-                    <h1 id="end-game-greeting"></h1>
-                    <form id="name-save">
-                        <input type="text" placeholder="Enter Your Name Here">
-                        <button type="submit">Submit!</button>
-                    </form>
-                    <div id="poke-matches">
-                        <!-- matches go here -->
-                    </div>
-                </section>
+                </div>
+                <div id="about-game" class="tab">
+                    <h1>ABOUT THE GAME</h1>
+                    <p></p>
+                </div>
             </section>
+
+
         </main>
         <footer class="copyright">Team Uranium &copy; 2017</footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

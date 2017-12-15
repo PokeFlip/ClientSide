@@ -7,23 +7,29 @@ var app = app || {}; // eslint-disable-line
     let gameView = {}; // eslint-disable-line
 
     gameView.initSelectPage = function() {
-        $('main section').hide();
+        $('.tab-content').hide();
         $('#selection').show();
     };
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Do we need this initGamePage?↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
     gameView.initGamePage = function() {
-        $('main section').hide();
-        $('#game-board').show();
+        $('.tab-content').hide();
+        $('#game').show();
     };
 
-    gameView.initLeaderboardPage = function(){
-        $('main section').hide();
+    gameView.initEndGamePage = function() {
+        $('.tab-content').hide();
+        $('#end-game').show();
+    };
+
+    gameView.initLeaderboardPage = function() {
+        $('.tab-content').hide();
         $('#leaderboard').show();
     };
 
-    gameView.initAboutPage = function(){
-        $('main section').hide();
+    gameView.initAboutPage = function() {
+        $('.tab-content').hide();
         $('#about').show();
     };
+
     module.gameView = gameView;
 })(app);
