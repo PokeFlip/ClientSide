@@ -7,27 +7,39 @@ app = app || {};
 
     view.initSelectPage = function() {
         $('.tab-content').hide();
-        $('#selection').show();
+        $('#selection').fadeIn();
+        $('#types button').on('click', function() {
+            event.preventDefault();
+            const type = $(this).text().toLowerCase();
+            app.Card.getPokemonByType(type, view.initGamePage());
+        });
     };
 
     view.initGamePage = function() {
+        app.gameboard.startGame();
         $('.tab-content').hide();
-        $('#game').show();
+        $('#game').fadeIn();
+        //TODO set event listeners for all cards flipped / time = 0.
     };
 
     view.initEndGamePage = function() {
-        $('.tab-content').hide();
-        $('#end-game').show();
+        $('.tab-content').fadeOut();
+        $('#end-game').delay(1000).fadeIn();
+        $('#name-save').hide();
+        app.gameboard.endGame();
+        // TODO set event listeners for form submission, play again button
+        // TODO call for pokemon matches view
     };
 
     view.initLeaderboardPage = function() {
         $('.tab-content').hide();
-        $('#leaderboard').show();
+        $('#leaderboard').fadeIn();
+        // TODO get call for app.leaderboard
     };
 
     view.initAboutPage = function() {
         $('.tab-content').hide();
-        $('#about').show();
+        $('#about').fadeIn();
     };
 
     module.view = view;
