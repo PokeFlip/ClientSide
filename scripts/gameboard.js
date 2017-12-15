@@ -6,8 +6,15 @@ app = app || {};
     const gameboard = {};
      
     gameboard.startGame = () => {
+        //TODO take 5 random cards from Card.all and tohtml them into .cards SHUFFLE cards after pushed into array on Card
+        const somePokemon = app.Card.all;
+        for (let i = 0; i < 5; i++) {
+            $('.cards').append(somePokemon[i].toHtml('#card-template'));
+        }
 
 
+        //TODO Set event listeners to the cards for flipping, matching, flipback. Not sure if they should be prototypes on the card or functions of the gameboard?
+        //TODO start timer.
     };
 
     gameboard.endGame = () => {
@@ -19,24 +26,29 @@ app = app || {};
             setTimeout(function() {
                 endGameHeader.addClass('select'); // reset flex direction
                 if ($('.match').length === app.Card.cardsArray.length) {
+                    $('#name-save').show();
                     endGameHeader.text('You Win! Save Your Score?');
                     scoreShow.text(`Your Score is ${score}`);
                 } // all matched
                 if (timer === '00:00') { // if timer ran out
-                    endGameHeader.text('Time Out! Play Again?'); // Ended HERE <-----
+                    endGameHeader.text('Time Out!');
                 } // timer ran out
-                endGameHeader.innerHTML += "<div class='win2'><button id='easy'>Easy</button> \
-        <button id='med'>Medium</button> \
-        <button id='hard'>Hard</button></div>";
-                setBestScore();
-            }, 2300); // settimeout with button creation
-            setTimeout(gameMode,2301); //waits to run gameMode until buttons are created
+                // app.leaderboard.setScore(); TODO leaderboard
+            }, 2300); // settimeout for fades
         } // if
     };
 
+    gameboard.clear = () => {
+        let cardsDiv = document.querySelector('.cards');
+        cardsDiv.innerHTML = '';
+        cardsDiv.classList.remove('select'); // flex direction
+        cardsArray = [];
+        document.querySelector('.score').lastChild.textContent = 0;
+    } 
+
     gameboard.setTime = (duration, display) => {
         let timer = duration, minutes, seconds;
-        let interval = setInterval(function() {
+        const interval = setInterval(function() {
             minutes = parseInt(timer / 60, 10);
             seconds = parseInt(timer % 60, 10);
 
@@ -48,8 +60,8 @@ app = app || {};
             if (--timer < 0 || $('.match').length === app.Card.cardsArray.length) {
                 clearInterval(interval); // fix timer continuing
                 gameboard.endGame();
-            }
-        }, 1000);
+            } // if
+        }, 1000); //interval
     };
 
     gameboard.updateScore = (points) => {
