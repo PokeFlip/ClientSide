@@ -4,32 +4,32 @@ var app = app || {}; // eslint-disable-line
 
 
 (function (module) {
-    let gameView = {}; // eslint-disable-line
+    let view = {}; // eslint-disable-line
 
-    gameView.initSelectPage = function() {
+    view.initSelectPage = function() {
         $('.tab-content').hide();
         $('#selection').show();
     };
 
-    gameView.initGamePage = function() {
+    view.initGamePage = function() {
         $('.tab-content').hide();
         $('#game').show();
     };
 
-    gameView.initEndGamePage = function() {
+    view.initEndGamePage = function() {
         $('.tab-content').hide();
         $('#end-game').show();
     };
 
-    gameView.initLeaderboardPage = function() {
+    view.initLeaderboardPage = function() {
         $('.tab-content').hide();
         $('#leaderboard').show();
     };
 
-    gameView.initAboutPage = function() {
+    view.initAboutPage = function() {
         $('.tab-content').hide();
         $('#about').show();
     };
 
-    module.gameView = gameView;
+    module.view = view;
 })(app);
