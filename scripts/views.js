@@ -1,10 +1,9 @@
 'use strict';
 
-var app = app || {}; // eslint-disable-line
-
+app = app || {};
 
 (function (module) {
-    let view = {}; // eslint-disable-line
+    const view = {};
 
     view.initSelectPage = function() {
         $('.tab-content').hide();
