@@ -4,8 +4,6 @@ app = app || {};
 
 
 (function(module) {
-    const card = {};
-
     function Card(obj) {
         this.name = obj.name;
         this.img_url = obj.img_url;
@@ -13,28 +11,17 @@ app = app || {};
         this.type = obj.type;
     }
 
-    card.all = [];
-    card.cardsArray = [];
-    card.flippedCards = [];
-
-    card.getPokemonByType = (type, cb) => {
-        $.get(`/pokemon/${type}`)
-            .then(pokemon => {
-                console.log(pokemon);
-                Card.loadAll(pokemon);
-            })
-            .then(() => {
-                if (cb) cb();
-            }); // callback view.initGamePage
-    };
+    Card.all = [];
+    Card.cardsArray = [];
+    Card.flippedCards = [];
 
     Card.prototype.toHtml = function(selector) {
         const template = Handlebars.compile($(`${selector}`).text());
         return template(this);
     };
 
-    card.loadAll = pokemon => {
-        Card.all = pokemon.map(pokeObj => new Card(poke));
+    Card.loadAll = pokemon => {
+        Card.all = pokemon.map(pokeObj => new Card(pokeObj));
     };
 
     // function createCards() {
@@ -100,6 +87,6 @@ app = app || {};
         }
     }
     
-    module.card = card;
+    module.Card = Card;
 
 })(app);

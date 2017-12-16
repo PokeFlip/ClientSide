@@ -42,6 +42,16 @@ app = app || {};
     //     document.querySelector('.score').lastChild.textContent = 0;
     // } 
 
+    gameboard.getPokemonByType = (type, cb) => {
+        $.get(`${API_URL}/pokemon/${type}`) //API_URL is defined in the index.html prior to all scripts. linter lies.
+            .then(pokemon => {
+                app.Card.loadAll(pokemon);
+            })
+            .then(() => {
+                if (cb) cb();
+            }); // callback view.initGamePage
+    };
+
     gameboard.setTime = (duration, display) => {
         let timer = duration, minutes, seconds;
         const interval = setInterval(function() {
