@@ -11,15 +11,15 @@ app = app || {};
         $('#types button').on('click', function() {
             event.preventDefault();
             const type = $(this).text().toLowerCase();
-            app.Card.getPokemonByType(type, view.initGamePage());
+            app.card.getPokemonByType(type, app.view.initGamePage);
         });
     };
 
     view.initGamePage = function() {
+        //TODO set event listeners for all cards flipped / time = 0.
         app.gameboard.startGame();
         $('.tab-content').hide();
         $('#game').fadeIn();
-        //TODO set event listeners for all cards flipped / time = 0.
     };
 
     view.initEndGamePage = function() {
