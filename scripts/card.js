@@ -4,8 +4,6 @@ app = app || {};
 
 
 (function(module) {
-    const card = {};
-
     function Card(obj) {
         this.name = obj.name;
         this.img_url = obj.img_url;
@@ -17,19 +15,17 @@ app = app || {};
     Card.cardsArray = [];
     Card.flippedCards = [];
 
-    Card.getPokemonByType = (type, cb) => {
-        $.get(`/pokemon/${type}`)
-            .then(pokemon => Card.loadAll(pokemon))
-            .then(cb()); // callback view.initGamePage
-    };
-
     Card.prototype.toHtml = function(selector) {
         const template = Handlebars.compile($(`${selector}`).text());
         return template(this);
     };
 
+    Card.findMatchingPokemonToDex = (dex, id) => {
+        
+    }
+
     Card.loadAll = pokemon => {
-        Card.all = pokemon.map(pokeObj => new Card(poke));
+        Card.all = pokemon.map(pokeObj => new Card(pokeObj));
     };
 
     // function createCards() {
@@ -88,11 +84,13 @@ app = app || {};
     //     }
     //   }
     function checkMatch() {
-        if (flippedCards[0].attr('data-number') === flippedCards[1].attr('data-number')) {
-            flippedCards[0].addClass('match');
-            flippedCards[1].addClass('match');
-            flippedCards = [];
-    };
-    module.card = card;
+        if (Card.flippedCards[0].attr('data-number') === Card.flippedCards[1].attr('data-number')) {
+            Card.flippedCards[0].addClass('match');
+            Card.flippedCards[1].addClass('match');
+            Card.flippedCards = [];
+        }
+    }
+    
+    module.Card = Card;
 
 })(app);
