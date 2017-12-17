@@ -20,6 +20,10 @@ app = app || {};
         return template(this);
     };
 
+    Card.findMatchingPokemonToDex = (dex, id) => {
+        
+    }
+
     Card.loadAll = pokemon => {
         Card.all = pokemon.map(pokeObj => new Card(pokeObj));
     };

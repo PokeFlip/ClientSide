@@ -8,15 +8,18 @@ app = app || {};
     view.initSelectPage = function() {
         $('.tab-content').hide();
         $('#selection').fadeIn();
-        $('#types button').on('click', function() {
-            event.preventDefault();
-            const type = $(this).text().toLowerCase();
-            app.card.getPokemonByType(type, app.view.initGamePage);
-        });
+        if (!($._data( $('.typeSelector')[0], 'events' ))) { //prevents the events from being added more than once.
+            $('.typeSelector').on('click', function() {
+                event.preventDefault();
+                const type = $(this).text().toLowerCase();
+                app.gameboard.getPokemonByType(type, app.view.initGamePage);
+            });
+        }
+        app.gameboard.clear();
+        //TODO: Clear previous game data. In here.
     };
 
     view.initGamePage = function() {
-        //TODO set event listeners for all cards flipped / time = 0.
         app.gameboard.startGame();
         $('.tab-content').hide();
         $('#game').fadeIn();
@@ -27,8 +30,6 @@ app = app || {};
         $('#end-game').delay(1000).fadeIn();
         $('#name-save').hide();
         app.gameboard.endGame();
-        // TODO set event listeners for form submission, play again button
-        // TODO call for pokemon matches view
     };
 
     view.initLeaderboardPage = function() {

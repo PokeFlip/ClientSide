@@ -6,8 +6,14 @@ app = app || {};
     const gameboard = {};
      
     gameboard.startGame = () => {
-        //TODO take 5 random cards from Card.all and tohtml them into .cards SHUFFLE cards after pushed into array on Card
-        $('.cards').append(app.card.all.toHtml('#card-template'));
+        for (let i = 0; i < app.Card.all.length; i++) {
+            $('.cards').append(app.Card.all[i].toHtml('#card-template'));
+        }
+
+        // $('.cards').append(app.Card.all.forEach(pokeObj => {
+        //     console.log(pokeObj);
+        //     return pokeObj.toHtml('#card-template');
+        // }));
 
         //TODO Set event listeners to the cards for flipping, matching, flipback. Not sure if they should be prototypes on the card or functions of the gameboard?
         //TODO start timer.
@@ -32,15 +38,17 @@ app = app || {};
                 // app.leaderboard.setScore(); TODO leaderboard
             }, 2300); // settimeout for fades
         } // if
+
+        // TODO set event listeners for form submission, play again button
+        // TODO call for pokemon matches view
     };
 
-    // gameboard.clear = () => {
-    //     let cardsDiv = document.querySelector('.cards');
-    //     cardsDiv.innerHTML = '';
-    //     cardsDiv.classList.remove('select'); // flex direction
-    //     cardsArray = [];
-    //     document.querySelector('.score').lastChild.textContent = 0;
-    // } 
+    gameboard.clear = () => {
+        $('.cards').empty();
+        app.Card.all = [];
+        app.Card.cardsArray = [];
+        $('.score span').text(0);
+    };
 
     gameboard.getPokemonByType = (type, cb) => {
         $.get(`${API_URL}/pokemon/${type}`) //API_URL is defined in the index.html prior to all scripts. linter lies.
@@ -50,6 +58,12 @@ app = app || {};
             .then(() => {
                 if (cb) cb();
             }); // callback view.initGamePage
+    };
+
+    gameboard.getPokemonDexEntry = (dex) => {
+        $.get(`${API_URL}/pokemonspecies/${dex}`)
+            .then(dexEntry => console.log(dexEntry)
+            );
     };
 
     gameboard.setTime = (duration, display) => {
