@@ -14,14 +14,7 @@ app = app || {};
             gameboard.getPokemondex_entry(app.Card.all[i].dex_number);
         }
 
-        for (let i = 0; i < app.Card.duplicatePokes.length; i++) {
-            $('.cards card').on('click', app.Card.flip);
-        }
-
-        // $('.cards').append(app.Card.all.forEach(pokeObj => {
-        //     console.log(pokeObj);
-        //     return pokeObj.toHtml('#card-template');
-        // }));
+        app.Card.flip();
 
         //TODO Set event listeners to the cards for flipping, matching, flipback. Not sure if they should be prototypes on the card or functions of the gameboard?
         //TODO start timer.
@@ -73,7 +66,6 @@ app = app || {};
         $.get(`${API_URL}/pokemonspecies/${dexNo}`)
             .then(dex_entry => {
                 //maybe use .replace(/\r/g, "") to get rid of \n
-                console.log(dex_entry.replace(/\r/g, ""));
                 app.Card.findMatchingPokemonToDex(dex_entry, dexNo);
             });
     };
@@ -116,10 +108,10 @@ app = app || {};
     gameboard.timeScore = () => {
         const timeLeft = $('.timer').text();
         let convertedTime;
-    
+
         convertedTime = parseInt(timeLeft.charAt(3) + timeLeft.charAt(4));
         convertedTime += (parseInt(timeLeft.charAt(1)) * 60);
-    
+
         return convertedTime;
     };
 

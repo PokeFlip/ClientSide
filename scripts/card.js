@@ -22,7 +22,6 @@ app = app || {};
     Card.findMatchingPokemonToDex = (dex_entry, dexNo) => {
         for (let i = 0; i < Card.all.length; i++) {
             if(Card.all[i].dex_number == dexNo) { //if the dex number of the poke in the array matches the number given assign it the dex_entry passed.
-                console.log(Card.all[i].dex_number);
                 Card.all[i].dex_entry = dex_entry;
                 break;
             }
@@ -48,33 +47,36 @@ app = app || {};
         }
     };
 
+    Card.prototype.flip = function() {
+        const $this = $(this);
 
-    // function cardClick() {
-    //     let cards = document.getElementsByClassName('card');
-    //     for (let i = 0; i<cards.length; i++) {
-    //       cards[i].addEventListener('click', function() {
-    //         if (!this.classList.contains('flipped') && flippedCards.length < 2) {
-    //           this.classList.toggle('flipped');
-    //           flippedCards.push(this);
-    //           // only lets two cards be flipped at a time
-    //           if (flippedCards.length === 2) {
-    //             checkMatch();
-    //           }
-    //         }
-    //       });
-    //     }
-    //   }
-
-    Card.prototype.cardFlip = function() {
-        if (!this.containsClass('flipped') && Card.flippedCards.length < 2) {
-            this.toggleClass('flipped');
-            Card.flippedCards.push(this);
-            // only lets two cards be flipped at a time
-            if (Card.flippedCards.length === 2) {
-                Card.checkMatch();
+        $this.on('click', function() {
+            if (!$this.containsClass('flipped') && Card.flippedCards.length < 2) {
+                $this.toggleClass('flipped');
+                Card.flippedCards.push($this);
+                // only lets two cards be flipped at a time
+                if (Card.flippedCards.length === 2) {
+                    Card.checkMatch();
+                }
             }
-        }
+        });
     };
+
+    // Card.flip = () => {
+    //     const cards = $('.card');
+    //     cards.forEach(card => {
+    //         card.on('click', function() {
+    //             if (card.containsClass('flipped') && Card.flippedCards.length < 2) {
+    //                 card.toggleClass('flipped');
+    //                 Card.flippedCards.push(card);
+    //                 // only lets two cards be flipped at a time
+    //                 if (Card.flippedCards.length === 2) {
+    //                     Card.checkMatch();
+    //                 }
+    //             }
+    //         });
+    //     });
+    // };
 
     Card.checkMatch = () => {
         if (Card.flippedCards[0].attr('data-number') === Card.flippedCards[1].attr('data-number')) {
