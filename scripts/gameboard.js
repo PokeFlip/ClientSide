@@ -4,11 +4,18 @@ app = app || {};
 
 (function(module) {
     const gameboard = {};
-     
+
     gameboard.startGame = () => {
         app.Card.shuffle(app.Card.duplicatePokes);
         for (let i = 0; i < app.Card.duplicatePokes.length; i++) {
             $('.cards').append(app.Card.duplicatePokes[i].toHtml('#card-template'));
+        }
+        for (let i = 0; i < app.Card.all.length; i++) {
+            gameboard.getPokemondex_entry(app.Card.all[i].dex_number);
+        }
+
+        for (let i = 0; i < app.Card.duplicatePokes.length; i++) {
+            $('.cards card').on('click', app.Card.flip);
         }
 
         // $('.cards').append(app.Card.all.forEach(pokeObj => {
@@ -22,13 +29,13 @@ app = app || {};
 
     gameboard.endGame = () => {
         const timer = $('.timer').text();
-        if ($('.match').length === app.card.cardsArray.length || timer == '00:00') {
+        if ($('.match').length === app.Card.duplicatePokes.length || timer == '00:00') {
             const endGameHeader = $('#end-game-greeting');
             const scoreShow = $('#score-show');
             const score = $('.score span').text();
             setTimeout(function() {
                 endGameHeader.addClass('select'); // reset flex direction
-                if ($('.match').length === app.card.cardsArray.length) {
+                if ($('.match').length === app.card.duplicatePokes.length) {
                     $('#name-save').show();
                     endGameHeader.text('You Win! Save Your Score?');
                     scoreShow.text(`Your Score is ${score}`);
@@ -62,10 +69,13 @@ app = app || {};
             }); // callback view.initGamePage
     };
 
-    gameboard.getPokemonDexEntry = (dex) => {
-        $.get(`${API_URL}/pokemonspecies/${dex}`)
-            .then(dexEntry => console.log(dexEntry)
-            );
+    gameboard.getPokemondex_entry = (dexNo) => {
+        $.get(`${API_URL}/pokemonspecies/${dexNo}`)
+            .then(dex_entry => {
+                //maybe use .replace(/\r/g, "") to get rid of \n
+                console.log(dex_entry.replace(/\r/g, ""));
+                app.Card.findMatchingPokemonToDex(dex_entry, dexNo);
+            });
     };
 
     gameboard.setTime = (duration, display) => {

@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <script id="card-template" type="text/x-handlebars-template">
-            <div data-number={{dexNumber}} class="card">
+            <div data-number={{dex_number}} class="card">
                 <div class="back">
                     <p>Some art here</p>
                 </div>
@@ -27,8 +27,8 @@
             <div class="pokemon">
                 <img src="{{imgUrl}}">
                 <p>{{name}}</p>
-                <p>Dex No: {{dexNumber}}</p>
-                <p>About: {{dexEntry}}</p>
+                <p>Dex No: {{dex_number}}</p>
+                <p>About: {{dex_entry}}</p>
             </div>
         </script>
     </head>
@@ -54,6 +54,14 @@
                     <button id="poison" class="typeSelector button">POISON</button>
                     <button id="normal" class="typeSelector button">NORMAL</button>
                     <button id="electric" class="typeSelector button">ELECTRIC</button>
+                    <button id="ice" class="typeSelector button">ICE</button>
+                    <button id="ghost" class="typeSelector button">GHOST</button>
+                    <button id="dark" class="typeSelector button">DARK</button>
+                    <button id="steel" class="typeSelector button">STEEL</button>
+                    <button id="dragon" class="typeSelector button">DRAGON</button>
+                    <button id="ground" class="typeSelector button">GROUND</button>
+                    <button id="fairy" class="typeSelector button">FAIRY</button>
+                    <button id="fighting" class="typeSelector button">FIGHTING</button>
                 </div>
             </section>
 
