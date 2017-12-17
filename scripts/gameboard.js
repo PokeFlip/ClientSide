@@ -6,8 +6,9 @@ app = app || {};
     const gameboard = {};
      
     gameboard.startGame = () => {
-        for (let i = 0; i < app.Card.all.length; i++) {
-            $('.cards').append(app.Card.all[i].toHtml('#card-template'));
+        app.Card.shuffle(app.Card.duplicatePokes);
+        for (let i = 0; i < app.Card.duplicatePokes.length; i++) {
+            $('.cards').append(app.Card.duplicatePokes[i].toHtml('#card-template'));
         }
 
         // $('.cards').append(app.Card.all.forEach(pokeObj => {
@@ -46,7 +47,7 @@ app = app || {};
     gameboard.clear = () => {
         $('.cards').empty();
         app.Card.all = [];
-        app.Card.cardsArray = [];
+        app.Card.duplicatePokes = [];
         $('.score span').text(0);
     };
 
@@ -54,6 +55,7 @@ app = app || {};
         $.get(`${API_URL}/pokemon/${type}`) //API_URL is defined in the index.html prior to all scripts. linter lies.
             .then(pokemon => {
                 app.Card.loadAll(pokemon);
+                app.Card.duplicateAll();
             })
             .then(() => {
                 if (cb) cb();

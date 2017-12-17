@@ -12,7 +12,7 @@ app = app || {};
     }
 
     Card.all = [];
-    Card.cardsArray = [];
+    Card.duplicatePokes = [];
     Card.flippedCards = [];
 
     Card.prototype.toHtml = function(selector) {
@@ -28,17 +28,20 @@ app = app || {};
         Card.all = pokemon.map(pokeObj => new Card(pokeObj));
     };
 
-    // function createCards() {
-    //     let cardsDiv = document.querySelector(".cards");
-    //     for (let i = 0; i< cardsArray.length; i++) {
-    //       let newCard = document.createElement("div");
-    //       newCard.className = 'card';
-    //       newCard.id = cardsArray[i];
-    //       cardsDiv.appendChild(newCard);
+    Card.duplicateAll = () => {
+        for (let i = 0; i < Card.all.length; i++) {
+            Card.duplicatePokes.push(Card.all[i]);
+            Card.duplicatePokes.push(Card.all[i]);
+        }
+    };
 
-    function createCards() {
-        let cardsDiv = $("cards")
-    }
+    Card.shuffle = (array) => {
+        //Fisher-Yates Shuffle of an array
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
 
 
     // function cardClick() {
