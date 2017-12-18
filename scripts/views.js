@@ -12,11 +12,10 @@ app = app || {};
             $('.typeSelector').on('click', function() {
                 event.preventDefault();
                 const type = $(this).text().toLowerCase();
-                app.gameboard.getPokemonByType(type, app.view.initGamePage);
-            });
+                app.gameboard.getPokemonByType(type, app.gameboard.getMultipleDexEntries, app.view.initGamePage);
+            }); //Have to pass dex entries earlier as they take too long to get (~30 seconds).
         }
         app.gameboard.clear();
-        //TODO: Clear previous game data. In here.
     };
 
     view.initGamePage = function() {

@@ -25,10 +25,10 @@
         </script>
         <script id="match-template" type="text/x-handlebars-template">
             <div class="pokemon">
-                <img src="{{imgUrl}}">
+                <img src="{{img_url}}">
                 <p>{{name}}</p>
                 <p>Dex No: {{dex_number}}</p>
-                <p>About: {{dex_entry}}</p>
+                <p>{{dex_entry}}</p>
             </div>
         </script>
     </head>
@@ -80,7 +80,7 @@
                 <h3 id="score-show"></h3>
                 <button id="play-again">Play Again!</button>
                 <form id="name-save">
-                    <input type="text" placeholder="Enter Your Name Here">
+                    <input type="text" placeholder="Enter Your Name Here" required>
                     <button type="submit">Submit!</button>
                 </form>
                 <div id="poke-matches">

@@ -50,8 +50,6 @@ app = app || {};
     Card.flip = () => {
         const cards = $('.card');
         cards.each(function() {
-            console.log(this);
-            console.log($(this));
             $(this).on('click', function() {
                 if (!$(this).hasClass('flipped') && Card.flippedCards.length < 2) {
                     $(this).toggleClass('flipped');
@@ -82,7 +80,7 @@ app = app || {};
         Card.flippedCards[1].toggleClass('flipped');
         Card.flippedCards = [];
     };
-  
+
     module.Card = Card;
 
 })(app);
