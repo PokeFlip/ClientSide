@@ -36,13 +36,17 @@ app = app || {};
             $('#poke-matches').append(reordered[i].toHtml('#match-template'));
         }
         if ($('.match').length === app.Card.duplicatePokes.length) {
+            $('#end-game-greeting').fadeIn(1500);
             $('#play-again').fadeIn(1500);
             $('#name-save').fadeIn(1500);
             $('#score-show').fadeIn(1500);
+            $('#poke-matches').fadeIn(1500);
             endGameHeader.text('You Win! Save Your Score?');
             scoreShow.text(`Your Score is ${score}`);
         } // all matched
         if (timer === '00:00') { // if timer ran out
+            $('#end-game-greeting').fadeIn(1500);
+            $('#poke-matches').fadeIn(1500);
             $('#play-again').fadeIn(1500);
             endGameHeader.text('Time Out!');
         } // timer ran out
