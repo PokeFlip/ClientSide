@@ -98,7 +98,7 @@ app = app || {};
             score.text(parseInt(score.text()) + parseInt(points));
         } // when score is not 0
 
-        if ($('.match').length === app.card.cardsArray.length) { // add left over time if win
+        if ($('.match').length === app.Card.duplicatePokes.length) { // add left over time if win
             score.text(parseInt(score.text()) + gameboard.timeScore());
         }
 

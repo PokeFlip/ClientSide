@@ -47,36 +47,23 @@ app = app || {};
         }
     };
 
-    Card.prototype.flip = function() {
-        const $this = $(this);
-
-        $this.on('click', function() {
-            if (!$this.containsClass('flipped') && Card.flippedCards.length < 2) {
-                $this.toggleClass('flipped');
-                Card.flippedCards.push($this);
-                // only lets two cards be flipped at a time
-                if (Card.flippedCards.length === 2) {
-                    Card.checkMatch();
+    Card.flip = () => {
+        const cards = $('.card');
+        cards.each(function() {
+            console.log(this);
+            console.log($(this));
+            $(this).on('click', function() {
+                if (!$(this).hasClass('flipped') && Card.flippedCards.length < 2) {
+                    $(this).toggleClass('flipped');
+                    Card.flippedCards.push($(this));
+                    // only lets two cards be flipped at a time
+                    if (Card.flippedCards.length === 2) {
+                        Card.checkMatch();
+                    }
                 }
-            }
+            });
         });
     };
-
-    // Card.flip = () => {
-    //     const cards = $('.card');
-    //     cards.forEach(card => {
-    //         card.on('click', function() {
-    //             if (card.containsClass('flipped') && Card.flippedCards.length < 2) {
-    //                 card.toggleClass('flipped');
-    //                 Card.flippedCards.push(card);
-    //                 // only lets two cards be flipped at a time
-    //                 if (Card.flippedCards.length === 2) {
-    //                     Card.checkMatch();
-    //                 }
-    //             }
-    //         });
-    //     });
-    // };
 
     Card.checkMatch = () => {
         if (Card.flippedCards[0].attr('data-number') === Card.flippedCards[1].attr('data-number')) {
@@ -89,7 +76,13 @@ app = app || {};
             app.gameboard.updateScore(-2);
         }
     };
-    
+
+    Card.flipBack = () => {
+        Card.flippedCards[0].toggleClass('flipped');
+        Card.flippedCards[1].toggleClass('flipped');
+        Card.flippedCards = [];
+    };
+  
     module.Card = Card;
 
 })(app);
