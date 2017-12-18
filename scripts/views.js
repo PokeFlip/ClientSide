@@ -20,24 +20,35 @@ app = app || {};
 
     view.initGamePage = function() {
         app.gameboard.startGame();
+        $('nav').hide();
         $('.tab-content').hide();
         $('#game').fadeIn();
+        $('#score-show').hide(); 
+        $('#name-save').hide();
+        $('#play-again').hide();
+        //hides score, play again, and form save before end game shows, will show in app.gameboard.endgame()
     };
 
     view.initEndGamePage = function() {
-        $('.tab-content').fadeOut();
-        $('#end-game').delay(1000).fadeIn();
-        $('#name-save').hide();
         app.gameboard.endGame();
+        $('.tab-content').fadeOut(1000);
+        $('#end-game').fadeIn(1200);
+        $('#play-again').on('click', function() {
+            event.preventDefault();
+            app.view.initSelectPage();
+        });
+        
     };
 
     view.initLeaderboardPage = function() {
+        $('nav').show();
         $('.tab-content').hide();
         $('#leaderboard').fadeIn();
         // TODO get call for app.leaderboard
     };
 
     view.initAboutPage = function() {
+        $('nav').show();
         $('.tab-content').hide();
         $('#about').fadeIn();
     };

@@ -21,35 +21,33 @@ app = app || {};
     gameboard.endGame = () => {
         const timer = $('.timer').text();
         if ($('.match').length === app.Card.duplicatePokes.length || timer == '00:00') {
-            const endGameHeader = $('#end-game-greeting');
-            const scoreShow = $('#score-show');
-            const score = $('.score span').text();
-            setTimeout(function() {
-                const reordered = app.Card.all.sort((a,b) => a.dex_number - b.dex_number); //re orders from shuffled state
-                for (let i = 0; i < app.Card.all.length; i++) { //Appends matches to endgame page
-                    $('#poke-matches').append(reordered[i].toHtml('#match-template'));
-                }
-                if ($('.match').length === app.Card.duplicatePokes.length) {
-                    $('#name-save').show();
-                    endGameHeader.text('You Win! Save Your Score?');
-                    scoreShow.text(`Your Score is ${score}`);
-                } // all matched
-                if (timer === '00:00') { // if timer ran out
-                    endGameHeader.text('Time Out!');
-                } // timer ran out
-                // app.leaderboard.setScore(); TODO leaderboard
-            }, 2300); // settimeout for fades
+            gameboard.winOrLose();
         } // if
 
-        // TODO set event listeners for form submission, play again button
-        // TODO call for pokemon matches view
     };
 
-    gameboard.clear = () => {
-        $('.cards').empty();
-        app.Card.all = [];
-        app.Card.duplicatePokes = [];
-        $('.score span').text(0);
+    gameboard.winOrLose = () => {
+        const timer = $('.timer').text();
+        const endGameHeader = $('#end-game-greeting');
+        const scoreShow = $('#score-show');
+        const score = $('.score span').text();
+        const reordered = app.Card.all.sort((a,b) => a.dex_number - b.dex_number); //re orders from shuffled state
+        for (let i = 0; i < app.Card.all.length; i++) { //Appends matches to endgame page
+            $('#poke-matches').append(reordered[i].toHtml('#match-template'));
+        }
+        if ($('.match').length === app.Card.duplicatePokes.length) {
+            $('#play-again').show();
+            $('#name-save').show();
+            $('#score-show').show();
+            endGameHeader.text('You Win! Save Your Score?');
+            scoreShow.text(`Your Score is ${score}`);
+        } // all matched
+        if (timer === '00:00') { // if timer ran out
+            $('#play-again').show();
+            endGameHeader.text('Time Out!');
+        } // timer ran out
+        // app.leaderboard.setScore(); TODO leaderboard
+        // TODO set event listeners for form submission, play again button          
     };
 
     gameboard.getPokemonByType = (type, cb, cb2) => {
@@ -80,6 +78,14 @@ app = app || {};
         }
     };
 
+    gameboard.clear = () => {
+        $('.cards').empty();
+        app.Card.all = [];
+        app.Card.duplicatePokes = [];
+        $('.score span').text(0);
+        $('#poke-matches').empty();
+    };
+
     gameboard.setTime = (duration, display) => {
         let timer = duration, minutes, seconds;
         const interval = setInterval(function() {
@@ -92,6 +98,7 @@ app = app || {};
             display.text(`${minutes}:${seconds}`);
 
             if (--timer < 0 || $('.match').length === app.Card.duplicatePokes.length) {
+                console.log('this is causing the problem');
                 clearInterval(interval); // fix timer continuing
                 app.view.initEndGamePage();
             }
