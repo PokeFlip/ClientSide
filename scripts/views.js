@@ -8,11 +8,7 @@ app = app || {};
     view.initSelectPage = function() {
         $('.tab-content').hide();
         $('#selection').fadeIn();
-        $('#score-show').hide();
-        $('#end-game-greeting').hide();
-        $('#name-save').hide();
-        $('#play-again').hide();
-        $('#poke-matches').hide();
+        $('#end-game').children().hide();
         //hides score, play again, and form save before end game shows, will show in app.gameboard.endgame()
         if (!($._data( $('.typeSelector')[0], 'events' ))) { //prevents the events from being added more than once.
             $('.typeSelector').on('click', function() {
@@ -33,13 +29,13 @@ app = app || {};
 
     view.initEndGamePage = function() {
         $('.tab-content').fadeOut(1000);
-        $('#end-game').fadeIn(1000);
+        $('#end-game').fadeIn(2000);
         app.gameboard.endGame();
         $('#play-again').on('click', function() {
             event.preventDefault();
             app.view.initSelectPage();
         });
-        
+ 
     };
 
     view.initLeaderboardPage = function() {
