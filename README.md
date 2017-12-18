@@ -9,11 +9,15 @@
 **Models:** 
 GameBoard:
   - startgame
-    - Select 5 random pokemon from Card.All
-    - from 5 pokes returned, createCardObj then app.card.toHtml
+    - Append cards to gameboard.
+    - Set event listeners to the cards for flipping, matching, flipback
   - endgame
+    - Different end game greeting depending on win or lose. Get to enter name into score system if win.
     - GET request to server. Server queries pokemon API for pokedex entries on pokemon.
     - run app.card.toHtml on each poke to append them to the page.
+  - GetPokemonByType
+    - Gets pokes according to type button clicked on selection page.
+  - GetPokemonDexEntry
   - timer
   - score
 
@@ -49,7 +53,8 @@ Views:
     - app.view.initAbout
   
 Leaderboard:
-  - databaseInput
+  - postNewScore
+  - getLeaderboard
   
  Server Routes:
   - get to pokeAPI that gets pokemon and makes a pokemon object with type, name, dex number, and image url.
@@ -59,8 +64,8 @@ Leaderboard:
   - inserPokemon, loadLeaderboard, and loadPokemon functions.
   
   **Features:**
-  - MPV: game with one difficulty, 3 types selector, leaderboard
-  - Stretch goals: add difficulty, more types
+  - MPV: game with one difficulty, multiple types selector, leaderboard, meet matches
+  - Stretch goals: add difficulty, gameboard colored to type
   
   **Databases:**
   - Leaderboard: Name VARCHAR(50), Score INTEGER
