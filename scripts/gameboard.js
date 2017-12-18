@@ -36,14 +36,14 @@ app = app || {};
             $('#poke-matches').append(reordered[i].toHtml('#match-template'));
         }
         if ($('.match').length === app.Card.duplicatePokes.length) {
-            $('#play-again').show();
-            $('#name-save').show();
-            $('#score-show').show();
+            $('#play-again').fadeIn(1500);
+            $('#name-save').fadeIn(1500);
+            $('#score-show').fadeIn(1500);
             endGameHeader.text('You Win! Save Your Score?');
             scoreShow.text(`Your Score is ${score}`);
         } // all matched
         if (timer === '00:00') { // if timer ran out
-            $('#play-again').show();
+            $('#play-again').fadeIn(1500);
             endGameHeader.text('Time Out!');
         } // timer ran out
         // app.leaderboard.setScore(); TODO leaderboard

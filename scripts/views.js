@@ -30,9 +30,9 @@ app = app || {};
     };
 
     view.initEndGamePage = function() {
-        app.gameboard.endGame();
         $('.tab-content').fadeOut(1000);
-        $('#end-game').fadeIn(1200);
+        $('#end-game').fadeIn(1000);
+        app.gameboard.endGame();
         $('#play-again').on('click', function() {
             event.preventDefault();
             app.view.initSelectPage();
