@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <script id="card-template" type="text/x-handlebars-template">
-            <div data-number={{dexNumber}} class="card">
+            <div data-number={{dex_number}} class="card">
                 <div class="back">
                     <p>Some art here</p>
                 </div>
@@ -25,10 +25,10 @@
         </script>
         <script id="match-template" type="text/x-handlebars-template">
             <div class="pokemon">
-                <img src="{{imgUrl}}">
+                <img src="{{img_url}}">
                 <p>{{name}}</p>
-                <p>Dex No: {{dexNumber}}</p>
-                <p>About: {{dexEntry}}</p>
+                <p>Dex No: {{dex_number}}</p>
+                <p>{{dex_entry}}</p>
             </div>
         </script>
     </head>
@@ -48,6 +48,20 @@
                     <button id="water" class="typeSelector button">WATER</button>
                     <button id="fire" class="typeSelector button">FIRE</button>
                     <button id="grass" class="typeSelector button">GRASS</button>
+                    <button id="rock" class="typeSelector button">ROCK</button>
+                    <button id="psychic" class="typeSelector button">PSYCHIC</button>
+                    <button id="bug" class="typeSelector button">BUG</button>
+                    <button id="poison" class="typeSelector button">POISON</button>
+                    <button id="normal" class="typeSelector button">NORMAL</button>
+                    <button id="electric" class="typeSelector button">ELECTRIC</button>
+                    <button id="ice" class="typeSelector button">ICE</button>
+                    <button id="ghost" class="typeSelector button">GHOST</button>
+                    <button id="dark" class="typeSelector button">DARK</button>
+                    <button id="steel" class="typeSelector button">STEEL</button>
+                    <button id="dragon" class="typeSelector button">DRAGON</button>
+                    <button id="ground" class="typeSelector button">GROUND</button>
+                    <button id="fairy" class="typeSelector button">FAIRY</button>
+                    <button id="fighting" class="typeSelector button">FIGHTING</button>
                 </div>
             </section>
 
@@ -66,7 +80,7 @@
                 <h3 id="score-show"></h3>
                 <button id="play-again">Play Again!</button>
                 <form id="name-save">
-                    <input type="text" placeholder="Enter Your Name Here">
+                    <input type="text" placeholder="Enter Your Name Here" required>
                     <button type="submit">Submit!</button>
                 </form>
                 <div id="poke-matches">

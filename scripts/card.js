@@ -2,17 +2,16 @@
 
 app = app || {};
 
-
 (function(module) {
     function Card(obj) {
         this.name = obj.name;
         this.img_url = obj.img_url;
-        this.dexNumber = obj.dex_number;
+        this.dex_number = obj.dex_number;
         this.type = obj.type;
     }
 
     Card.all = [];
-    Card.cardsArray = [];
+    Card.duplicatePokes = [];
     Card.flippedCards = [];
 
     Card.prototype.toHtml = function(selector) {
@@ -20,77 +19,68 @@ app = app || {};
         return template(this);
     };
 
-    Card.findMatchingPokemonToDex = (dex, id) => {
-        
-    }
+    Card.findMatchingPokemonToDex = (dex_entry, dexNo) => {
+        for (let i = 0; i < Card.all.length; i++) {
+            if(Card.all[i].dex_number == dexNo) { //if the dex number of the poke in the array matches the number given assign it the dex_entry passed.
+                Card.all[i].dex_entry = dex_entry;
+                break;
+            }
+        }
+    };
 
     Card.loadAll = pokemon => {
         Card.all = pokemon.map(pokeObj => new Card(pokeObj));
     };
 
-    // function createCards() {
-    //     let cardsDiv = document.querySelector(".cards");
-    //     for (let i = 0; i< cardsArray.length; i++) {
-    //       let newCard = document.createElement("div");
-    //       newCard.className = 'card';
-    //       newCard.id = cardsArray[i];
-    //       cardsDiv.appendChild(newCard);
+    Card.duplicateAll = () => {
+        for (let i = 0; i < Card.all.length; i++) {
+            Card.duplicatePokes.push(Card.all[i]);
+            Card.duplicatePokes.push(Card.all[i]);
+        }
+    };
 
-    function createCards() {
-        let cardsDiv = $("cards")
-    }
+    Card.shuffle = (array) => {
+        //Fisher-Yates Shuffle of an array
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
 
-
-    // function cardClick() {
-    //     let cards = document.getElementsByClassName('card');
-    //     for (let i = 0; i<cards.length; i++) {
-    //       cards[i].addEventListener('click', function() {
-    //         if (!this.classList.contains('flipped') && flippedCards.length < 2) {
-    //           this.classList.toggle('flipped');
-    //           flippedCards.push(this);
-    //           // only lets two cards be flipped at a time
-    //           if (flippedCards.length === 2) {
-    //             checkMatch();
-    //           }
-    //         }
-    //       });
-    //     }
-    //   }
-
-    function cardClick() {
-        let cards = $('card');
-        for (let i = 0; i < Card.length; i++) {
-            $(Card)[i].addEventListener('click', function() {
-                if (!this.containsClass('flipped') && flippedCards.length < 2) {
-                    this.toggleClass('flipped');
-                    Card.push(this);
+    Card.flip = () => {
+        const cards = $('.card');
+        cards.each(function() {
+            $(this).on('click', function() {
+                if (!$(this).hasClass('flipped') && Card.flippedCards.length < 2) {
+                    $(this).toggleClass('flipped');
+                    Card.flippedCards.push($(this));
                     // only lets two cards be flipped at a time
-                    if (flippedCards.length === 2) {
-                        checkMatch();
+                    if (Card.flippedCards.length === 2) {
+                        Card.checkMatch();
                     }
                 }
             });
-        }
-    }
-    // function checkMatch() {
-    //     if (flippedCards[0].getAttribute('id') === flippedCards[1].getAttribute('id')) {
-    //       flippedCards[0].classList.add('match');
-    //       flippedCards[1].classList.add('match');
-    //       flippedCards = [];
-    //       updateScore(4);
-    //     } else {
-    //       setTimeout(flipBack, 700);
-    //       updateScore(-2);
-    //     }
-    //   }
-    function checkMatch() {
+        });
+    };
+
+    Card.checkMatch = () => {
         if (Card.flippedCards[0].attr('data-number') === Card.flippedCards[1].attr('data-number')) {
             Card.flippedCards[0].addClass('match');
             Card.flippedCards[1].addClass('match');
             Card.flippedCards = [];
+            app.gameboard.updateScore(4);
+        } else {
+            setTimeout(Card.flipBack, 700);
+            app.gameboard.updateScore(-2);
         }
-    }
-    
+    };
+
+    Card.flipBack = () => {
+        Card.flippedCards[0].toggleClass('flipped');
+        Card.flippedCards[1].toggleClass('flipped');
+        Card.flippedCards = [];
+    };
+
     module.Card = Card;
 
 })(app);

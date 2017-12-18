@@ -4,30 +4,32 @@ app = app || {};
 
 (function(module) {
     const gameboard = {};
-     
+
     gameboard.startGame = () => {
-        for (let i = 0; i < app.Card.all.length; i++) {
-            $('.cards').append(app.Card.all[i].toHtml('#card-template'));
+        //Shuffle pokes prior to placing them on gameboard
+        app.Card.shuffle(app.Card.duplicatePokes); 
+
+        //append them to gameboard
+        for (let i = 0; i < app.Card.duplicatePokes.length; i++) { 
+            $('.cards').append(app.Card.duplicatePokes[i].toHtml('#card-template'));
         }
 
-        // $('.cards').append(app.Card.all.forEach(pokeObj => {
-        //     console.log(pokeObj);
-        //     return pokeObj.toHtml('#card-template');
-        // }));
-
-        //TODO Set event listeners to the cards for flipping, matching, flipback. Not sure if they should be prototypes on the card or functions of the gameboard?
-        //TODO start timer.
+        app.Card.flip(); //Assigns flip event listeners.
+        gameboard.setTime(20, $('.timer')); //Set time in seconds
     };
 
     gameboard.endGame = () => {
         const timer = $('.timer').text();
-        if ($('.match').length === app.card.cardsArray.length || timer == '00:00') {
+        if ($('.match').length === app.Card.duplicatePokes.length || timer == '00:00') {
             const endGameHeader = $('#end-game-greeting');
             const scoreShow = $('#score-show');
             const score = $('.score span').text();
             setTimeout(function() {
-                endGameHeader.addClass('select'); // reset flex direction
-                if ($('.match').length === app.card.cardsArray.length) {
+                const reordered = app.Card.all.sort((a,b) => a.dex_number - b.dex_number); //re orders from shuffled state
+                for (let i = 0; i < app.Card.all.length; i++) { //Appends matches to endgame page
+                    $('#poke-matches').append(reordered[i].toHtml('#match-template'));
+                }
+                if ($('.match').length === app.Card.duplicatePokes.length) {
                     $('#name-save').show();
                     endGameHeader.text('You Win! Save Your Score?');
                     scoreShow.text(`Your Score is ${score}`);
@@ -46,24 +48,36 @@ app = app || {};
     gameboard.clear = () => {
         $('.cards').empty();
         app.Card.all = [];
-        app.Card.cardsArray = [];
+        app.Card.duplicatePokes = [];
         $('.score span').text(0);
     };
 
-    gameboard.getPokemonByType = (type, cb) => {
+    gameboard.getPokemonByType = (type, cb, cb2) => {
         $.get(`${API_URL}/pokemon/${type}`) //API_URL is defined in the index.html prior to all scripts. linter lies.
             .then(pokemon => {
                 app.Card.loadAll(pokemon);
+                app.Card.duplicateAll();
             })
             .then(() => {
                 if (cb) cb();
+            })
+            .then(() => {
+                if (cb2) cb2();
             }); // callback view.initGamePage
     };
 
-    gameboard.getPokemonDexEntry = (dex) => {
-        $.get(`${API_URL}/pokemonspecies/${dex}`)
-            .then(dexEntry => console.log(dexEntry)
-            );
+    gameboard.getPokemondex_entry = (dexNo) => {
+        $.get(`${API_URL}/pokemonspecies/${dexNo}`)
+            .then(dex_entry => {
+                //maybe use .replace(/\r/g, "") to get rid of \n
+                app.Card.findMatchingPokemonToDex(dex_entry, dexNo);
+            });
+    };
+
+    gameboard.getMultipleDexEntries = () => {
+        for (let i = 0; i < app.Card.all.length; i++) {
+            gameboard.getPokemondex_entry(app.Card.all[i].dex_number);
+        }
     };
 
     gameboard.setTime = (duration, display) => {
@@ -77,11 +91,11 @@ app = app || {};
 
             display.text(`${minutes}:${seconds}`);
 
-            if (--timer < 0 || $('.match').length === app.card.cardsArray.length) {
+            if (--timer < 0 || $('.match').length === app.Card.duplicatePokes.length) {
                 clearInterval(interval); // fix timer continuing
-                gameboard.endGame();
-            } // if
-        }, 1000); //interval
+                app.view.initEndGamePage();
+            }
+        }, 1000);
     };
 
     gameboard.updateScore = (points) => {
@@ -94,7 +108,7 @@ app = app || {};
             score.text(parseInt(score.text()) + parseInt(points));
         } // when score is not 0
 
-        if ($('.match').length === app.card.cardsArray.length) { // add left over time if win
+        if ($('.match').length === app.Card.duplicatePokes.length) { // add left over time if win
             score.text(parseInt(score.text()) + gameboard.timeScore());
         }
 
@@ -104,10 +118,10 @@ app = app || {};
     gameboard.timeScore = () => {
         const timeLeft = $('.timer').text();
         let convertedTime;
-    
+
         convertedTime = parseInt(timeLeft.charAt(3) + timeLeft.charAt(4));
         convertedTime += (parseInt(timeLeft.charAt(1)) * 60);
-    
+
         return convertedTime;
     };
 
