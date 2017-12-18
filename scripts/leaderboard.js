@@ -7,20 +7,23 @@ app = app || {};
 
     leaderboard.toHtml = function(obj) {
         const template = Handlebars.compile($('#table-template').text());
-        console.log(obj);
         return template(obj);
     };
 
     leaderboard.getScores = () => {
         $.get(`${API_URL}/leaderboard`)
             .then(results => {
-                console.log(typeof results);
-                console.log(JSON.stringify(results));
-
                 for (let i = 0; i < results.length; i++) {
                     results[i].place = i + 1;
                     $('#table-data').append(leaderboard.toHtml(results[i]));
                 }
+            });
+    };
+
+    leaderboard.postScores = (name, score, cb) => {
+        $.post(`${API_URL}/leaderboard/${name}/${score}`)
+            .then(() => {
+                cb();
             });
     };
 

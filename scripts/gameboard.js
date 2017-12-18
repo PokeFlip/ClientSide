@@ -7,10 +7,10 @@ app = app || {};
 
     gameboard.startGame = () => {
         //Shuffle pokes prior to placing them on gameboard
-        app.Card.shuffle(app.Card.duplicatePokes); 
+        app.Card.shuffle(app.Card.duplicatePokes);
 
         //append them to gameboard
-        for (let i = 0; i < app.Card.duplicatePokes.length; i++) { 
+        for (let i = 0; i < app.Card.duplicatePokes.length; i++) {
             $('.cards').append(app.Card.duplicatePokes[i].toHtml('#card-template'));
         }
 
@@ -35,6 +35,10 @@ app = app || {};
         for (let i = 0; i < app.Card.all.length; i++) { //Appends matches to endgame page
             $('#poke-matches').append(reordered[i].toHtml('#match-template'));
         }
+        $('#name-save').on('submit', () => {
+            const name = $('#name-save input[type = "text"]').val();
+            app.leaderboard.postScores(name, score, app.view.initLeaderboardPage);
+        });
         if ($('.match').length === app.Card.duplicatePokes.length) {
             $('#end-game').children().fadeIn(2300);
             endGameHeader.text('You Win! Save Your Score?');
@@ -47,7 +51,8 @@ app = app || {};
             endGameHeader.text('Time Out!');
         } // timer ran out
         // app.leaderboard.setScore(); TODO leaderboard
-        // TODO set event listeners for form submission, play again button          
+        // TODO set event listeners for form submission, play again button
+
     };
 
     gameboard.getPokemonByType = (type, cb, cb2) => {
