@@ -100,7 +100,7 @@ app = app || {};
 
     gameboard.updateScore = (points) => {
         const score = $('.score span');
-        if (parseInt(score) == 0 && points > 0) {
+        if (parseInt(score.text()) == 0 && points > 0) {
             score.text(parseInt(points));
         } // doesn't let score dip below 0
 
@@ -113,7 +113,6 @@ app = app || {};
         }
 
     };
-
 
     gameboard.timeScore = () => {
         const timeLeft = $('.timer').text();
