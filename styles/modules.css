@@ -60,3 +60,29 @@
 
   /****************** LEADERBOAD
 ******************/
+
+#score-table {
+    margin: auto;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    width: 40%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    color: rgb(255,204,3);
+    text-align: 
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
+}

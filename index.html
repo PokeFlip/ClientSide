@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <link rel="stylesheet" href="styles/state.css">
-        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
         <script id="card-template" type="text/x-handlebars-template">
             <div data-number={{dex_number}} class="card">
                 <div class="back">
@@ -97,10 +97,10 @@
             <section id="leaderboard" class="tab-content">
                 <h1>LEADERBOARD</h1>
                 <table id="score-table">
-                    <tr id="row-headers">
-                        <td>place</td>
-                        <td>name</td>
-                        <td>score</td>
+                    <tr id="data-headers">
+                        <th id="rank">rank</th>
+                        <th id="score-name">name</th>
+                        <th id="score">score</th>
                     </tr>  
                 </table>
             </section>

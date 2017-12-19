@@ -13,8 +13,8 @@
   }
   
   body {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -39,17 +39,17 @@ body {
   background-position: center;
 }
 nav {
-  margin-top: 1.5%;
+  margin-top: 1%;
 }
 
 nav ul{
   display: flex;
   list-style: none;
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 nav li {
-  margin-right: 70px;
+  margin-right: 90px;
 }
 
 nav a:hover {
