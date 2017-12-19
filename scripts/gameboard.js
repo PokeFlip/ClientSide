@@ -36,6 +36,7 @@ app = app || {};
             $('#poke-matches').append(reordered[i].toHtml('#match-template'));
         }
         $('#name-save').on('submit', () => {
+            event.preventDefault();
             const name = $('#name-save input[type = "text"]').val();
             app.leaderboard.postScores(name, score, app.view.initLeaderboardPage);
         });

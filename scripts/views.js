@@ -7,6 +7,7 @@ app = app || {};
 
     view.initSelectPage = function() {
         $('.tab-content').hide();
+        $('nav').show();
         $('#selection').fadeIn();
         $('#end-game').children().hide();
         //hides score, play again, and form save before end game shows, will show in app.gameboard.endgame()
