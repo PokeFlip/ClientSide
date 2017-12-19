@@ -4,39 +4,35 @@
     padding: 0;
   }
   
-  a {
+a {
     text-decoration: none;
     color: inherit;
-  }
-  html, body {
-    height: 100vh;
-  }
+}
   
-  body {
-    font-family: 'VT323', monospace;
-    font-size: 3rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+html, body {
+    height: 100%;
+}
 
-  main {
+/* main {
     flex: 1 0 auto;
-  }
+} */
 
 img {
     width: 100%;
 }
 
 body {
-  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('http://www.murphymeadow.com/26/white-flowers-background-tumblr-29.jpg');
-  /* https://i.pinimg.com/originals/c4/82/af/c482af0f3d8ae22948ddec5cedcbeef6.jpg */
+  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('/images/background.jpg');
   background-repeat: no-repeat;
   margin: 0 auto;
   background-size: cover;
-  height: 100%;
   background-attachment: fixed;
   background-position: center;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  /* display: flex; */
+  flex-direction: column;
+  text-align: center;
 }
 nav {
   margin-top: 1%;
@@ -54,4 +50,13 @@ nav li {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+button {
+  padding: 5px 15px;
+  background: rgb(86, 86, 87);
+  border: 0 none;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
 }

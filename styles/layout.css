@@ -5,7 +5,13 @@
     padding-bottom: 1%;
     background-color: rgba(0,0,0,.3);
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    height: 200px;
+    width: 100%;
 }
 
 #logo {

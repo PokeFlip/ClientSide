@@ -1,6 +1,14 @@
 /****************** GAMEBOARD
 ******************/
 
+.copyright {
+    font-size: 5rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 /* SELECT BUTTONS */
 
 .typeSelector {
@@ -17,12 +25,15 @@
     filter: invert(100%);
 }
 
-/*CARDS*/
+/*SCORE / TIME*/
 
-.back {
-    width: 100px;
-    height: 100px;
+.container {
+    font-size: 6rem;
+    display: flex;
+    justify-content: space-around;
 }
+
+/*CARDS*/
 
 .cards {
     display: flex;
@@ -30,15 +41,27 @@
     flex-wrap: wrap;
     perspective: 3000px;
     position: relative;
-    max-width: 800px;
+    max-width: 60%;
     margin: auto;
   }
+
+/* .background {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -99;
+} */
+
+.back {
+    border: 2px solid black;
+}
 
 .card {
     font-family: "Dosis";
     font-weight: 800;
-    height: 100px;
-    max-width: 100px;
+    height: 300px;
+    max-width: 300px;
     min-width: 75px;
     width: 50%;
     display: block;
@@ -57,6 +80,45 @@
     height: 100%;
     backface-visibility: hidden;
   }
+
+    /* ENDGAME*/
+
+#poke-matches {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+#score-show {
+    font-size: 5rem;
+    margin-bottom: 100px;
+}
+
+#name-save {
+    margin-bottom: 100px;
+}
+
+#play-again {
+    font-size: 5rem;
+}
+
+.pokemon {
+    width: 30%;
+    margin: 15px;
+}
+
+.pokemon img {
+    width: 50%;
+}
+
+.pokemon p {
+    margin-top: 10px;
+}
+
+.poke-name {
+    text-transform: uppercase;
+}
 
   /****************** LEADERBOAD
 ******************/
@@ -86,3 +148,42 @@ table {
 table, th, td {
     border: 1px solid white;
 }
+
+  /****************** ABOUT
+******************/
+
+#about {
+    display: flex;
+}
+
+#group-image {
+    width: 100%;
+    z-index: -1;
+    margin-left: 50px;
+    /* display:flex; */
+}
+
+#group-image img {
+    width: 50%;
+    border: 2px solid black;
+}
+
+#group-image p {
+    padding: 10px;
+}
+
+#about-us {
+    width: 70%;
+}
+
+#about-game p {
+    padding-top: 50px;
+    padding-right: 50px;
+}
+
+#about-game {
+    width: 30%;
+}
+
+
+

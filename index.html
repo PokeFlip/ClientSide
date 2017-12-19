@@ -17,6 +17,7 @@
                 </div>
                 <div class="front">
                     <img src="{{img_url}}" alt="{{name}}">
+                    <div class="background"></div>
                 </div>
             </div>
         </script>
@@ -30,9 +31,9 @@
         <script id="match-template" type="text/x-handlebars-template">
             <div class="pokemon">
                 <img src="{{img_url}}">
-                <p>{{name}}</p>
-                <p>Dex No: {{dex_number}}</p>
-                <p>{{dex_entry}}</p>
+                <p class="poke-name">{{name}}</p>
+                <p class="poke-dex">Dex No: {{dex_number}}</p>
+                <p class="poke-entry">{{dex_entry}}</p>
             </div>
         </script>
     </head>
@@ -84,11 +85,11 @@
             <section id="end-game" class="tab-content">
                 <h1 id="end-game-greeting"></h1>
                 <h3 id="score-show"></h3>
-                <button id="play-again">Play Again!</button>
                 <form id="name-save">
                     <input type="text" placeholder="Enter Your Name Here" required>
                     <button type="submit">Submit!</button>
                 </form>
+                <button id="play-again">Play Again!</button>
                 <div id="poke-matches">
                     <!-- matches go here -->
                 </div>
@@ -108,18 +109,18 @@
             <section id="about" class="tab-content">
                 <div id="about-us" class="tab">
                     <h1>ABOUT US</h1>
-                    <div>
-                        <img src="images/group.png" alt="picture of us">
-                        <p></p>
+                    <div id="group-image">
+                        <div>
+                            <img src="images/group.png" alt="picture of us">
+                        </div>
+                        <p>Team Uranium, led by Grace, Richard, and Jack, is an organization founded by their shared love of Pokemon. Their main goal is to bring fun and competition into the modern world with their new Pokemon memory game, PokeFlip. </p>
                     </div>
                 </div>
                 <div id="about-game" class="tab">
                     <h1>ABOUT THE GAME</h1>
-                    <p></p>
+                    <p>This app was created for Alchemy Code Lab 301 final project. It is a memory game. MUCH FUN. It utilizes PokeApi.co to obtain information and images on pokemon. A server was created to route requests for PokeApi, as well as GET/POST requests for scores. </p>
                 </div>
             </section>
-
-
         </main>
         <footer class="copyright">Team Uranium &copy; 2017</footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

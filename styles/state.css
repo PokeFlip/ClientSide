@@ -7,10 +7,6 @@
 }
 
 .front{
-    /* font-size: 4rem;
-    color: rgb(107, 46, 130);
-    background-color: rgb(66, 244, 170);
-    border: 3px solid rgb(239, 147, 67); */
     transform: rotateY(180deg);
 }
 
@@ -28,14 +24,6 @@
   }
   
   .match {
+    z-index: 1;
     animation: 1s flash .7s ease-in-out;
-  }
-  
-  @keyframes fade {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
   }
