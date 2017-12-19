@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <link rel="stylesheet" href="styles/state.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
         <script id="card-template" type="text/x-handlebars-template">
             <div data-number={{dex_number}} class="card">
                 <div class="back">
@@ -20,7 +21,7 @@
             </div>
         </script>
         <script id="table-template" type="text/x-handlebars-template">
-            <tr>
+            <tr class="data-row">
                 <td>{{place}}</td>
                 <td>{{name}}</td>
                 <td>{{score}}</td>
@@ -36,20 +37,19 @@
         </script>
     </head>
     <body>
-        <header>
-            <img src="images/pokeflip.png">
+        <header id="heading">
+            <img id="logo" src="images/pokeflip.png">
+            <nav>
+                <ul>
+                    <li><a href="/">Game</a></li> <!--hide this when inside the game -->
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
         </header>
-        <nav>
-            <ul>
-                <li><a href="/">Game</a></li> <!--hide this when inside the game -->
-                <li><a href="/leaderboard">Leaderboard</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
         <main>
-
             <section id="selection" class="tab-content">
-                <h1>PICK YOUR GAME TYPE</h1>
+                <h1>SELECT YOUR MODE</h1>
                 <div id="types">
                     <img id="water" class="typeSelector" src="images/buttons/waterButton.png" alt="water">
                     <img id="fire" class="typeSelector" src="images/buttons/fireButton.png" alt="fire">
@@ -97,14 +97,11 @@
             <section id="leaderboard" class="tab-content">
                 <h1>LEADERBOARD</h1>
                 <table id="score-table">
-                    <tr>
-                        <th>Place</th>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                    <tr id="table-data">
-                    <!-- people go in here -->
-                    </tr>
+                    <tr id="row-headers">
+                        <td>place</td>
+                        <td>name</td>
+                        <td>score</td>
+                    </tr>  
                 </table>
             </section>
 

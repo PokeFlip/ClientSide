@@ -8,9 +8,20 @@
     text-decoration: none;
     color: inherit;
   }
-  
   html, body {
-    height: 100%;
+    height: 100vh;
+  }
+  
+  body {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main {
+    flex: 1 0 auto;
   }
 
 img {
@@ -18,20 +29,29 @@ img {
 }
 
 body {
-
-
+  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('http://www.murphymeadow.com/26/white-flowers-background-tumblr-29.jpg');
+  /* https://i.pinimg.com/originals/c4/82/af/c482af0f3d8ae22948ddec5cedcbeef6.jpg */
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-size: cover;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+}
+nav {
+  margin-top: 1.5%;
 }
 
-body::after {
-    content: '';
-    background-image: url('http://www.themesltd.com/backgrounds/cartoon/pokemon_pokeball.gif');
-    background-attachment: fixed;
-    opacity: .5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-size: 20%;
-    z-index: -1;
-    position: absolute;
+nav ul{
+  display: flex;
+  list-style: none;
+  font-size: 3rem;
+}
+
+nav li {
+  margin-right: 70px;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }

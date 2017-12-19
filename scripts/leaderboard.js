@@ -11,12 +11,12 @@ app = app || {};
     };
 
     leaderboard.getScores = () => {
-        $('#table-data').empty();
+        $('.data-row').empty();
         $.get(`${API_URL}/leaderboard`)
             .then(results => {
                 for (let i = 0; i < results.length; i++) {
                     results[i].place = i + 1;
-                    $('#table-data').append(leaderboard.toHtml(results[i]));
+                    $('#score-table').append(leaderboard.toHtml(results[i]));
                 }
             });
     };
