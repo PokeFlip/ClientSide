@@ -11,6 +11,7 @@ app = app || {};
     };
 
     leaderboard.getScores = () => {
+        $('#table-data').empty();
         $.get(`${API_URL}/leaderboard`)
             .then(results => {
                 for (let i = 0; i < results.length; i++) {

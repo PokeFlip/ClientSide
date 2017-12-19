@@ -39,6 +39,7 @@ app = app || {};
             event.preventDefault();
             const name = $('#name-save input[type = "text"]').val();
             app.leaderboard.postScores(name, score, app.view.initLeaderboardPage);
+            $('#name-save input[type = "text"]').val('');
         });
         if ($('.match').length === app.Card.duplicatePokes.length) {
             $('#end-game').children().fadeIn(2300);

@@ -19,7 +19,6 @@ app = app || {};
             }); //Have to pass dex entries earlier as they take too long to get (~30 seconds).
         }
         app.gameboard.clear();
-        app.leaderboard.getScores();
     };
 
     view.initGamePage = function() {
@@ -44,7 +43,7 @@ app = app || {};
         $('nav').show();
         $('.tab-content').hide();
         $('#leaderboard').fadeIn();
-        // TODO get call for app.leaderboard
+        app.leaderboard.getScores();
     };
 
     view.initAboutPage = function() {
