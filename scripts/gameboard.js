@@ -38,7 +38,7 @@ app = app || {};
         $('#name-save').on('submit', () => {
             event.preventDefault();
             const name = $('#name-save input[type = "text"]').val();
-            app.leaderboard.postScores(name, score, app.view.initLeaderboardPage);
+            app.leaderboard.postScores(name, score);
             $('#name-save input[type = "text"]').val('');
         });
         if ($('.match').length === app.Card.duplicatePokes.length) {
@@ -105,7 +105,6 @@ app = app || {};
             display.text(`${minutes}:${seconds}`);
 
             if (--timer < 0 || $('.match').length === app.Card.duplicatePokes.length) {
-                console.log('this is causing the problem');
                 clearInterval(interval); // fix timer continuing
                 app.view.initEndGamePage();
             }

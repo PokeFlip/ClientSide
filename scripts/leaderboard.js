@@ -21,11 +21,9 @@ app = app || {};
             });
     };
 
-    leaderboard.postScores = (name, score, cb) => {
+    leaderboard.postScores = (name, score) => {
         $.post(`${API_URL}/leaderboard/${name}/${score}`)
-            .then(() => {
-                cb();
-            });
+            .then(page('/leaderboard'));
     };
 
     module.leaderboard = leaderboard;
