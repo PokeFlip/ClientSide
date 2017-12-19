@@ -8,10 +8,11 @@
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
+        <link rel="stylesheet" href="styles/state.css">
         <script id="card-template" type="text/x-handlebars-template">
             <div data-number={{dex_number}} class="card">
                 <div class="back">
-                    <p>Some art here</p>
+                    <img src="images/poke-card-back-small.png" alt="back of card">
                 </div>
                 <div class="front">
                     <img src="{{img_url}}" alt="{{name}}">
@@ -19,9 +20,11 @@
             </div>
         </script>
         <script id="table-template" type="text/x-handlebars-template">
-            <td>{{place}}</td>
-            <td>{{name}}</td>
-            <td>{{score}}</td>
+            <tr>
+                <td>{{place}}</td>
+                <td>{{name}}</td>
+                <td>{{score}}</td>
+            </tr>    
         </script>
         <script id="match-template" type="text/x-handlebars-template">
             <div class="pokemon">
@@ -48,23 +51,23 @@
             <section id="selection" class="tab-content">
                 <h1>PICK YOUR GAME TYPE</h1>
                 <div id="types">
-                    <button id="water" class="typeSelector button">WATER</button>
-                    <button id="fire" class="typeSelector button">FIRE</button>
-                    <button id="grass" class="typeSelector button">GRASS</button>
-                    <button id="rock" class="typeSelector button">ROCK</button>
-                    <button id="psychic" class="typeSelector button">PSYCHIC</button>
-                    <button id="bug" class="typeSelector button">BUG</button>
-                    <button id="poison" class="typeSelector button">POISON</button>
-                    <button id="normal" class="typeSelector button">NORMAL</button>
-                    <button id="electric" class="typeSelector button">ELECTRIC</button>
-                    <button id="ice" class="typeSelector button">ICE</button>
-                    <button id="ghost" class="typeSelector button">GHOST</button>
-                    <button id="dark" class="typeSelector button">DARK</button>
-                    <button id="steel" class="typeSelector button">STEEL</button>
-                    <button id="dragon" class="typeSelector button">DRAGON</button>
-                    <button id="ground" class="typeSelector button">GROUND</button>
-                    <button id="fairy" class="typeSelector button">FAIRY</button>
-                    <button id="fighting" class="typeSelector button">FIGHTING</button>
+                    <img id="water" class="typeSelector" src="images/buttons/waterButton.png" alt="water">
+                    <img id="fire" class="typeSelector" src="images/buttons/fireButton.png" alt="fire">
+                    <img id="grass" class="typeSelector" src="images/buttons/grassButton.png" alt="grass">
+                    <img id="rock" class="typeSelector" src="images/buttons/rockButton.png" alt="rock">
+                    <img id="psychic" class="typeSelector" src="images/buttons/psychicButton.png" alt="psychic">
+                    <img id="bug" class="typeSelector" src="images/buttons/bugButton.png" alt="bug">
+                    <img id="poison" class="typeSelector" src="images/buttons/poisonButton.png" alt="poison">
+                    <img id="normal" class="typeSelector" src="images/buttons/normalButton.png" alt="normal">
+                    <img id="electric" class="typeSelector" src="images/buttons/electricButton.png" alt="electric">
+                    <img id="ice" class="typeSelector" src="images/buttons/iceButton.png" alt="ice">
+                    <img id="ghost" class="typeSelector" src="images/buttons/ghostButton.png" alt="ghost">
+                    <img id="dark" class="typeSelector" src="images/buttons/darkButton.png" alt="dark">
+                    <img id="steel" class="typeSelector" src="images/buttons/steelButton.png" alt="steel">
+                    <img id="dragon" class="typeSelector" src="images/buttons/dragonButton.png" alt="dragon">
+                    <img id="ground" class="typeSelector" src="images/buttons/groundButton.png" alt="ground">
+                    <img id="fairy" class="typeSelector" src="images/buttons/fairyButton.png" alt="fairy">
+                    <img id="fighting" class="typeSelector" src="images/buttons/fightingButton.png" alt="fighting">
                 </div>
             </section>
 
@@ -109,7 +112,7 @@
                 <div id="about-us" class="tab">
                     <h1>ABOUT US</h1>
                     <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2000px-International_Pok%C3%A9mon_logo.svg.png" width="300" height="auto">
+                        <img src="images/group.png" alt="picture of us">
                         <p></p>
                     </div>
                 </div>
