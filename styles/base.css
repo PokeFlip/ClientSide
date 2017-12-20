@@ -13,9 +13,10 @@ html, body {
     height: 100%;
 }
 
-/* main {
+main {
     flex: 1 0 auto;
-} */
+    margin-top: 230px;
+}
 
 img {
     width: 100%;
@@ -30,7 +31,7 @@ body {
   background-position: center;
   font-family: 'VT323', monospace;
   font-size: 3rem;
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   text-align: center;
 }

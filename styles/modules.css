@@ -3,10 +3,7 @@
 
 .copyright {
     font-size: 5rem;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
 }
 
 /* SELECT BUTTONS */
@@ -45,14 +42,6 @@
     margin: auto;
   }
 
-/* .background {
-    background-color: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -99;
-} */
-
 .back {
     border: 2px solid black;
 }
@@ -81,7 +70,7 @@
     backface-visibility: hidden;
   }
 
-    /* ENDGAME*/
+/* ENDGAME*/
 
 #poke-matches {
     display:flex;
@@ -138,7 +127,6 @@ th, td {
 
 th {
     color: rgb(255,204,3);
-    text-align: 
 }
 
 table {
@@ -154,36 +142,40 @@ table, th, td {
 
 #about {
     display: flex;
+    justify-content: space-around;
+    /* flex-flow: row wrap; */
 }
-
-#group-image {
-    width: 100%;
-    z-index: -1;
-    margin-left: 50px;
-    /* display:flex; */
-}
-
-#group-image img {
-    width: 50%;
-    border: 2px solid black;
-}
-
-#group-image p {
-    padding: 10px;
+.tab {
+    width:100%;
 }
 
 #about-us {
-    width: 70%;
+    flex-grow: 1;
+}
+
+#us-image {
+    flex-grow: 2;
+    flex-basis: 150%;
+    margin-top: 70px;
+}
+
+#about-game {
+    flex-grow: 1;
+}
+
+#us-image img {
+    border: 2px solid black;
+}
+
+#about-us p {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 15px;
 }
 
 #about-game p {
     padding-top: 50px;
     padding-right: 50px;
+    padding-left: 15px;
 }
-
-#about-game {
-    width: 30%;
-}
-
-
 

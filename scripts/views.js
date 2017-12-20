@@ -42,7 +42,7 @@ app = app || {};
     view.initLeaderboardPage = function() {
         $('nav').show();
         $('.tab-content').hide();
-        $('#leaderboard').fadeIn();
+        $('#leaderboard').fadeIn();  
         app.leaderboard.getScores();
     };
 

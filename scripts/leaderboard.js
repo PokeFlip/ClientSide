@@ -14,6 +14,7 @@ app = app || {};
         $('.data-row').empty();
         $.get(`${API_URL}/leaderboard`)
             .then(results => {
+                $('.data-row').empty();
                 for (let i = 0; i < results.length; i++) {
                     results[i].place = i + 1;
                     $('#score-table').append(leaderboard.toHtml(results[i]));

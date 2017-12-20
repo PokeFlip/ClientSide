@@ -14,7 +14,7 @@
     transform: rotateY(180deg);
   }
   
-  @keyframes flash {
+  /* @keyframes flash {
     0% {
       background-color: white;
     }
@@ -26,4 +26,4 @@
   .match {
     z-index: 1;
     animation: 1s flash .7s ease-in-out;
-  }
+  } */

@@ -41,6 +41,7 @@ app = app || {};
             app.leaderboard.postScores(name, score);
             $('#name-save input[type = "text"]').val('');
         });
+        
         if ($('.match').length === app.Card.duplicatePokes.length) {
             $('#end-game').children().fadeIn(2300);
             endGameHeader.text('You Win! Save Your Score?');
@@ -52,9 +53,6 @@ app = app || {};
             $('#play-again').fadeIn(2300);
             endGameHeader.text('Time Out!');
         } // timer ran out
-        // app.leaderboard.setScore(); TODO leaderboard
-        // TODO set event listeners for form submission, play again button
-
     };
 
     gameboard.getPokemonByType = (type, cb, cb2) => {
