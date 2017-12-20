@@ -14,6 +14,10 @@
     width: 100%;
 }
 
+#game, #end-game, #leaderboard, #about {
+    display: none;
+}
+
 #logo {
     width: 350px;
     height: 100%;

@@ -13,17 +13,3 @@
 .flipped {
     transform: rotateY(180deg);
   }
-  
-  /* @keyframes flash {
-    0% {
-      background-color: white;
-    }
-    100% {
-      background-color: default;
-    }
-  }
-  
-  .match {
-    z-index: 1;
-    animation: 1s flash .7s ease-in-out;
-  } */
