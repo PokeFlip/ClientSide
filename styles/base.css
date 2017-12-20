@@ -15,7 +15,7 @@ html, body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 230px;
+    margin-top: 150px;
 }
 
 img {
@@ -30,7 +30,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   font-family: 'VT323', monospace;
-  font-size: 3rem;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -42,7 +42,7 @@ nav {
 nav ul{
   display: flex;
   list-style: none;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 nav li {

@@ -30,17 +30,20 @@ app = app || {};
         const timer = $('.timer').text();
         const endGameHeader = $('#end-game-greeting');
         const scoreShow = $('#score-show');
-        const score = $('.score span').text();
+        let score = $('.score span').text();
         const reordered = app.Card.all.sort((a,b) => a.dex_number - b.dex_number); //re orders from shuffled state
         for (let i = 0; i < app.Card.all.length; i++) { //Appends matches to endgame page
             $('#poke-matches').append(reordered[i].toHtml('#match-template'));
         }
-        $('#name-save').on('submit', () => {
-            event.preventDefault();
-            const name = $('#name-save input[type = "text"]').val();
-            app.leaderboard.postScores(name, score);
-            $('#name-save input[type = "text"]').val('');
-        });
+        if (!($._data( $('#name-save')[0], 'events' ))) {
+            $('#name-save').on('submit', () => {
+                event.preventDefault();
+                score = $('.score span').text();
+                const name = $('#name-save input[type = "text"]').val();
+                app.leaderboard.postScores(name, score);
+                $('#name-save input[type = "text"]').val('');
+            });
+        }
         
         if ($('.match').length === app.Card.duplicatePokes.length) {
             $('#end-game').children().fadeIn(2300);
