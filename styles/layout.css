@@ -1,0 +1,21 @@
+/* HEADER */
+
+#heading {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: rgba(0,0,0,.3);
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    height: 200px;
+    width: 100%;
+}
+
+#logo {
+    width: 350px;
+    height: 100%;
+    margin-left: 1%;
+}

@@ -4,34 +4,60 @@
     padding: 0;
   }
   
-  a {
+a {
     text-decoration: none;
     color: inherit;
-  }
+}
   
-  html, body {
+html, body {
     height: 100%;
-  }
+}
+
+main {
+    flex: 1 0 auto;
+    margin-top: 230px;
+}
 
 img {
     width: 100%;
 }
 
 body {
-
-
+  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('/images/background.jpg');
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+nav {
+  margin-top: 1%;
 }
 
-body::after {
-    content: '';
-    background-image: url('http://www.themesltd.com/backgrounds/cartoon/pokemon_pokeball.gif');
-    background-attachment: fixed;
-    opacity: .5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-size: 20%;
-    z-index: -1;
-    position: absolute;
+nav ul{
+  display: flex;
+  list-style: none;
+  font-size: 5rem;
+}
+
+nav li {
+  margin-right: 90px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+button {
+  padding: 5px 15px;
+  background: rgb(86, 86, 87);
+  border: 0 none;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
 }

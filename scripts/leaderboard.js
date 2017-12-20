@@ -11,21 +11,20 @@ app = app || {};
     };
 
     leaderboard.getScores = () => {
-        $('#table-data').empty();
+        $('.data-row').empty();
         $.get(`${API_URL}/leaderboard`)
             .then(results => {
+                $('.data-row').empty();
                 for (let i = 0; i < results.length; i++) {
                     results[i].place = i + 1;
-                    $('#table-data').append(leaderboard.toHtml(results[i]));
+                    $('#score-table').append(leaderboard.toHtml(results[i]));
                 }
             });
     };
 
-    leaderboard.postScores = (name, score, cb) => {
+    leaderboard.postScores = (name, score) => {
         $.post(`${API_URL}/leaderboard/${name}/${score}`)
-            .then(() => {
-                cb();
-            });
+            .then(page('/leaderboard'));
     };
 
     module.leaderboard = leaderboard;

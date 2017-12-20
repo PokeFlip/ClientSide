@@ -38,9 +38,10 @@ app = app || {};
         $('#name-save').on('submit', () => {
             event.preventDefault();
             const name = $('#name-save input[type = "text"]').val();
-            app.leaderboard.postScores(name, score, app.view.initLeaderboardPage);
+            app.leaderboard.postScores(name, score);
             $('#name-save input[type = "text"]').val('');
         });
+        
         if ($('.match').length === app.Card.duplicatePokes.length) {
             $('#end-game').children().fadeIn(2300);
             endGameHeader.text('You Win! Save Your Score?');
@@ -52,9 +53,6 @@ app = app || {};
             $('#play-again').fadeIn(2300);
             endGameHeader.text('Time Out!');
         } // timer ran out
-        // app.leaderboard.setScore(); TODO leaderboard
-        // TODO set event listeners for form submission, play again button
-
     };
 
     gameboard.getPokemonByType = (type, cb, cb2) => {
@@ -105,7 +103,6 @@ app = app || {};
             display.text(`${minutes}:${seconds}`);
 
             if (--timer < 0 || $('.match').length === app.Card.duplicatePokes.length) {
-                console.log('this is causing the problem');
                 clearInterval(interval); // fix timer continuing
                 app.view.initEndGamePage();
             }

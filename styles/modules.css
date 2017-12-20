@@ -1,12 +1,36 @@
 /****************** GAMEBOARD
 ******************/
 
-/*CARDS*/
-
-.back {
-    width: 100px;
-    height: 100px;
+.copyright {
+    font-size: 5rem;
+    margin-top: 20px;
 }
+
+/* SELECT BUTTONS */
+
+.typeSelector {
+    width: 18%;
+}
+
+.typeSelector {
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+.typeSelector:hover {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+/*SCORE / TIME*/
+
+.container {
+    font-size: 6rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*CARDS*/
 
 .cards {
     display: flex;
@@ -14,15 +38,19 @@
     flex-wrap: wrap;
     perspective: 3000px;
     position: relative;
-    max-width: 800px;
+    max-width: 60%;
     margin: auto;
   }
+
+.back {
+    border: 2px solid black;
+}
 
 .card {
     font-family: "Dosis";
     font-weight: 800;
-    height: 100px;
-    max-width: 100px;
+    height: 300px;
+    max-width: 300px;
     min-width: 75px;
     width: 50%;
     display: block;
@@ -41,3 +69,113 @@
     height: 100%;
     backface-visibility: hidden;
   }
+
+/* ENDGAME*/
+
+#poke-matches {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+#score-show {
+    font-size: 5rem;
+    margin-bottom: 100px;
+}
+
+#name-save {
+    margin-bottom: 100px;
+}
+
+#play-again {
+    font-size: 5rem;
+}
+
+.pokemon {
+    width: 30%;
+    margin: 15px;
+}
+
+.pokemon img {
+    width: 50%;
+}
+
+.pokemon p {
+    margin-top: 10px;
+}
+
+.poke-name {
+    text-transform: uppercase;
+}
+
+  /****************** LEADERBOAD
+******************/
+
+#score-table {
+    margin: auto;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    width: 40%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    color: rgb(255,204,3);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+  /****************** ABOUT
+******************/
+
+#about {
+    display: flex;
+    justify-content: space-around;
+    /* flex-flow: row wrap; */
+}
+.tab {
+    width:100%;
+}
+
+#about-us {
+    flex-grow: 1;
+}
+
+#us-image {
+    flex-grow: 2;
+    flex-basis: 150%;
+    margin-top: 70px;
+}
+
+#about-game {
+    flex-grow: 1;
+}
+
+#us-image img {
+    border: 2px solid black;
+}
+
+#about-us p {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 15px;
+}
+
+#about-game p {
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 15px;
+}
+

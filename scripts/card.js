@@ -69,11 +69,9 @@ app = app || {};
             Card.flippedCards[1].addClass('match');
             Card.flippedCards = [];
             app.gameboard.updateScore(4);
-            console.log('updated score 4');
         } else {
             setTimeout(Card.flipBack, 700);
             app.gameboard.updateScore(-2);
-            console.log('updated score -2');
         }
     };
 
