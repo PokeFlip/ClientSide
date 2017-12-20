@@ -23,7 +23,7 @@ img {
 }
 
 body {
-  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('/images/background.jpg'); /* /ClientSide */
+  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('/ClientSide/images/background.jpg');
   background-repeat: no-repeat;
   margin: 0 auto;
   background-size: cover;
