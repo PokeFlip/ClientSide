@@ -2,7 +2,7 @@
 ******************/
 
 .copyright {
-    font-size: 5rem;
+    font-size: 2.5rem;
     margin-top: 20px;
 }
 
@@ -25,7 +25,7 @@
 /*SCORE / TIME*/
 
 .container {
-    font-size: 6rem;
+    font-size: 4rem;
     display: flex;
     justify-content: space-around;
 }
@@ -49,10 +49,8 @@
 .card {
     font-family: "Dosis";
     font-weight: 800;
-    height: 300px;
-    max-width: 300px;
-    min-width: 75px;
-    width: 50%;
+    height: 150px;
+    width: 150px;
     display: block;
     margin-left: 1%;
     margin-right: 1%;
@@ -80,16 +78,20 @@
 }
 
 #score-show {
-    font-size: 5rem;
-    margin-bottom: 100px;
+    font-size: 4rem;
+    margin-bottom: 70px;
 }
 
 #name-save {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
+}
+
+#name-save input {
+    font-size: 2rem;
 }
 
 #play-again {
-    font-size: 5rem;
+    font-size: 2.5rem;
 }
 
 .pokemon {

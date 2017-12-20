@@ -15,7 +15,7 @@ html, body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 230px;
+    margin-top: 150px;
 }
 
 img {
@@ -23,14 +23,14 @@ img {
 }
 
 body {
-  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('/ClientSide/images/background.jpg');
+  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0)), url('/images/background.jpg'); /* /ClientSide */
   background-repeat: no-repeat;
   margin: 0 auto;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   font-family: 'VT323', monospace;
-  font-size: 3rem;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -42,7 +42,7 @@ nav {
 nav ul{
   display: flex;
   list-style: none;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 nav li {
