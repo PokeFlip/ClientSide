@@ -7,6 +7,7 @@
 **Pitch:** A pokemon memory game. The images are taken from the pokeApi. This will be a single page app for desktop. Pages will include a pokemon type gameboard selector, gameboard, endgame, about, and leaderboard.
 
 **Models:** 
+
 GameBoard:
   - startgame
     - Append cards to gameboard.
