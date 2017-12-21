@@ -30,8 +30,12 @@ Card:
   - Card.all array to hold card objects
   - loadAll
     - GET request to server. Server queries pokemon table in PokeFlip database. SELECT poke_image FROM pokemon WHERE type=INSERT_TYPE. Then create objects of them, and push into Card.all array.
+    
+Leaderboard:
+  - postScore
+  - getScores
 
-Views:
+**Views:**
   - initLeaderboard
     - GET request to server. Server queries learderboard table in PokeFlip database. Have a function that counts place for each score in the table.
   - initAbout
@@ -44,17 +48,14 @@ Views:
     - runs app.gameBoard.endgame
     - event listener when name submit button is clicked which will POST score to database, then send user to leaderboard page.
     
+ **Controllers:**  
  Routes:
-  - /game
+  - /
     - app.view.initSelect
   - /leaderboard
     - app.view.initLeaderboard
   - /about
     - app.view.initAbout
-  
-Leaderboard:
-  - postNewScore
-  - getLeaderboard
   
  Server Routes:
   - get to pokeAPI that gets pokemon and makes a pokemon object with type, name, dex number, and image url.
@@ -70,3 +71,32 @@ Leaderboard:
   **Databases:**
   - Leaderboard: Name VARCHAR(50), Score INTEGER
   - Pokemon: Dex_Number UNIQUE INTEGER, Name VARCHAR(25), Type VARCHAR(25), "image" VARCHAR(500)
+  
+  **Requirements**
+  
+ * **Obvious MVC/REST architecture**
+    * Single-page app style
+    * Clearly defined Resources in the app
+    * Resource data is persisted by a database
+    * Resources have well-factored and isolated M, V, C components
+    * URLs use conventional REST design
+ * **Good and proper use of HTML**
+    * Clear, readable, and efficient structure
+    * Uses semantic markup whenever possible
+ * **Good and proper use of CSS**
+    * Clear, readable, and efficient styles
+    * Layout on various screen sizes like desktop and mobile
+    * Well organized file structure.
+ * **Good and proper use of JavaScript**
+    * Clear, readable, and efficient code
+    * Uses domain models to encapsulate data and behavior (OOP)
+    * Responds to user events
+    * Leverages AJAX appropriately in at least one case
+    * Integrates 3rd party libraries like jQuery consistently
+    * Contains no unnecessary or commented-out code
+ * **Generally useful and functional**
+    * Works as expected with no bugs
+    * Has at least 3 interlinked "pages" with a clear navigation
+    * Has at least two pages that accept and process user input
+    * State is persisted between page reloads
+    * Deployed live on the Internet
