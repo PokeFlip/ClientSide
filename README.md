@@ -1,6 +1,6 @@
-# ClientSide
+# PokeFlip
 
-**Team Name:** Uranium
+**Live:** https://pokeflip.github.io/ClientSide/
 
 **Team Members:** Grace Provost, Richard Livingston, Jack Lomax
 
